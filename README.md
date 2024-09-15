@@ -6,6 +6,10 @@
 This project is a group assignment for NTNU course IDATA2503, where we are to build an Quiz App for mobile. We will heavly follow a [udemy](https://www.udemy.com/course/learn-flutter-dart-to-build-ios-android-apps/?couponCode=24T4MT90924A) course and add our own features on top of that.
 
 - [The app](#the-app)
+- [User stories](#user-stories)
+- [Files and folder structure](#files-and-folder-structure)
+- [App architecture](#app-architecture)
+- [Specifications](#specifications)
 - [Class Diagram](#class-diagram)
 - [How to run this project](#how-to-run-this-project)
 
@@ -14,6 +18,57 @@ This project is a group assignment for NTNU course IDATA2503, where we are to bu
 The app is built using flutter and dart and testet on emulated IOS and
 android phones. It is a simple Quiz app where we hard code in questions and the
 first answer in the list is the correct one. One first land on a start screen where one can choose to start the quiz. Then we display a text with posible answers and let the user select one before we change to new questions. After every question is answered the user get to see what they answerd and if it was correct.
+
+## User stories
+
+### User story 1
+
+As a user,
+I want to be able to start a new quiz,
+so that I can answer a set of questions.
+
+Acceptance Criteria:
+
+- The user can tap a "Start Quiz" button to begin.
+- The user is presented with a set of multiple-choice questions.
+- The app should display the total number of questions at the beginning of the quiz.
+
+### User story 2
+
+As a user,
+I want to be able to select an answer for each question,
+so that I can participate in the quiz.
+
+Acceptance Criteria:
+
+- The user is shown one question at a time.
+- The user can select one of several possible answers for each question.
+- The app should show a "Next" button to move to the next question after an answer is selected.
+
+### User story 3 (Maybe add this?)
+
+As a user,
+I want to see how many questions I have answered and how many are left,
+so that I know my progress through the quiz.
+
+Acceptance Criteria:
+
+- The app shows the current question number (e.g., "Question 3 of 5").
+- After each question is answered, the progress indicator updates.
+
+## Files and Folder structure
+
+Comming soon when the project is done...
+
+## App architecture
+
+The architecture of this project. Since we are new to this we dont know how to make test, error handling,
+
+Our architecture consist of Stateful and less classes that display widgets to the UI and fetch questions from a data.dart file.
+
+## Specifications
+
+To work on IOS and Android.
 
 ## Class Diagram
 
