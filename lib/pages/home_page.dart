@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:quiz_app/components/layout/page_wrapper.dart';
+import 'package:quiz_app/pages/pages.dart';
 
-class StartScreen extends StatelessWidget {
-  const StartScreen(this.startQuiz, {super.key});
-
-  final void Function() startQuiz;
-
+class HomePage extends StatelessWidget {
   @override
-  Widget build(context) {
-    return Center(
+  Widget build(BuildContext context) {
+    return PageWrapper(title: "Home page", child:  Center(
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -28,7 +26,9 @@ class StartScreen extends StatelessWidget {
           ),
           const SizedBox(height: 30),
           OutlinedButton.icon(
-            onPressed: startQuiz,
+            onPressed: () {
+              Navigator.pushNamed(context, PageRoutes.questions.path);
+            },
             style: OutlinedButton.styleFrom(
               foregroundColor: Colors.white,
             ),
@@ -36,6 +36,7 @@ class StartScreen extends StatelessWidget {
             label: const Text('Start Quiz'),
           ),
         ],
+      ),
       ),
     );
   }

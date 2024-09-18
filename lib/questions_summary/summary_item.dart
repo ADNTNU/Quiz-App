@@ -6,7 +6,7 @@ import 'package:quiz_app/questions_summary/question_identifier.dart';
 class SummaryItem extends StatelessWidget {
   const SummaryItem(this.itemData, {super.key});
 
-  final Map<String, Object> itemData;
+  final Map<String, dynamic> itemData;
 
   @override
   Widget build(BuildContext context) {

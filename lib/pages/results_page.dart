@@ -1,43 +1,44 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import 'package:quiz_app/data/questions.dart';
+import 'package:provider/provider.dart';
+import 'package:quiz_app/components/layout/page_wrapper.dart';
+import 'package:quiz_app/pages/pages.dart';
 import 'package:quiz_app/questions_summary/questions_summary.dart';
+import 'package:quiz_app/states/quiz_state.dart';
 
-class ResultsScreen extends StatelessWidget {
-  const ResultsScreen({
-    super.key,
-    required this.chosenAnswers,
-    required this.onRestart,
-  });
+class ResultsPage extends StatelessWidget {
+  const ResultsPage({super.key});
 
-  final List<String> chosenAnswers;
-  final void Function() onRestart;
+  @override
+  Widget build(BuildContext context) {
+    return Consumer<QuizState>(
+      builder: (context, quizState, child) {
 
-  List<Map<String, Object>> getSummaryData() {
-    final List<Map<String, Object>> summary = [];
+        List<Map<String, dynamic>> getSummaryData() {
+    final List<Map<String, dynamic>> summary = [];
+
+    final questions = quizState.questions;
+    final chosenAnswers = quizState.answers;
 
     for (int i = 0; i < chosenAnswers.length; i++) {
       summary.add({
         'question_index': i,
         'question': questions[i].text,
         'correct_answer': questions[i].answers[0],
-        'user_answer': chosenAnswers[i]
+        'user_answer': chosenAnswers[i] ?? '',
       });
     }
 
     return summary;
   }
 
-  @override
-  Widget build(BuildContext context) {
-    final summaryData = getSummaryData();
-    final numTotalQuestions = questions.length;
+  final summaryData = getSummaryData();
+    final numTotalQuestions = quizState.questions.length;
     final numCorrectQuestions = summaryData.where((data) {
       return data['user_answer'] == data['correct_answer'];
     }).length;
 
-    return SizedBox(
+    return PageWrapper(title: 'Results', child: SizedBox(
       width: double.infinity,
       child: Container(
         margin: const EdgeInsets.all(40),
@@ -57,16 +58,21 @@ class ResultsScreen extends StatelessWidget {
             QuestionsSummary(summaryData: summaryData),
             const SizedBox(height: 40),
             TextButton.icon(
-              onPressed: onRestart,
+              onPressed: () {
+                Provider.of<QuizState>(context, listen: false).reset();
+                Navigator.popUntil(context, ModalRoute.withName(PageRoutes.home.path));
+              },
               style: TextButton.styleFrom(
                 foregroundColor: Colors.white,
               ),
               icon: const Icon(Icons.refresh),
-              label: const Text('Restart Quiz!'),
+              label: const Text('Main menu!'),
             ),
           ],
         ),
       ),
+    ));
+      }
     );
   }
 }
