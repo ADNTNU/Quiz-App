@@ -6,6 +6,7 @@ import 'package:quiz_app/pages/pages.dart';
 import 'package:quiz_app/questions_summary/questions_summary.dart';
 import 'package:quiz_app/states/quiz_state.dart';
 
+/// A page that displays the results of the quiz
 class ResultsPage extends StatelessWidget {
   const ResultsPage({super.key});
 
@@ -14,6 +15,7 @@ class ResultsPage extends StatelessWidget {
     return Consumer<QuizState>(
       builder: (context, quizState, child) {
 
+        /// Returns a list of maps containing the summary data
         List<Map<String, dynamic>> getSummaryData() {
     final List<Map<String, dynamic>> summary = [];
 

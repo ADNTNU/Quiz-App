@@ -6,6 +6,8 @@ import 'package:quiz_app/pages/questions_page.dart';
 import 'package:quiz_app/pages/results_page.dart';
 import 'package:quiz_app/states/quiz_state.dart';
 
+/// Entry point of the application
+/// Runs the app and creates providers to manage the state
 void main() {
   runApp(
     MultiProvider(
@@ -17,7 +19,8 @@ void main() {
   );
 }
 
-
+/// The main application widget
+/// Contains the routes for the different pages
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 

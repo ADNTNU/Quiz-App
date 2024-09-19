@@ -6,6 +6,8 @@ import 'package:quiz_app/components/layout/page_wrapper.dart';
 import 'package:quiz_app/pages/pages.dart';
 import 'package:quiz_app/states/quiz_state.dart';
 
+
+/// A page that displays the questions and answers for the quiz
 class QuestionsPage extends StatelessWidget {
   const QuestionsPage({super.key});
 
@@ -16,15 +18,17 @@ class QuestionsPage extends StatelessWidget {
       builder: (context, quizState, child) {
         final currentQuestion = quizState.currentQuestion;
 
-WidgetsBinding.instance.addPostFrameCallback((_) {
-        if (quizState.isFinished) {
-          Navigator.pushNamed(context, PageRoutes.results.path);
-        }
-});
+        // Runs after the page has loaded
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          if (quizState.isFinished) {
+            Navigator.pushNamed(context, PageRoutes.results.path);
+          }
+        });
 
-    return PageWrapper(title: 'Questions', child: SizedBox(
-      width: double.infinity,
-      child: Container(
+    return PageWrapper(title: 'Questions', child: Stack(
+            children: [
+              Center(
+                child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 40),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -60,16 +64,31 @@ WidgetsBinding.instance.addPostFrameCallback((_) {
             // Add main menu button
             ElevatedButton(
               onPressed: () {
-                Navigator.popUntil(context, ModalRoute.withName('/'));
+                Provider.of<QuizState>(context, listen: false).reset();
+                Navigator.popUntil(context, ModalRoute.withName(PageRoutes.home.path));
               },
               child: const Text('Main Menu'),
             ),
-          ],
+            ],
+          ),
         ),
       ),
-    ),
-    );
-      },
-    );
+                Positioned(
+                  top: 72,
+                  right: 32,
+                  child: Text(
+                    '${quizState.currentQuestionIndex + 1} / ${quizState.questions.length}',
+                    style: GoogleFonts.lato(
+                      color: Colors.white,
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+            ],
+          ),
+        );
+        },
+      );
+    }
   }
-}

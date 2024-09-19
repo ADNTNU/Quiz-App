@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+/// A widget that displays the question number
+/// It is used to identify the question in the summary, with a different color for correct and incorrect answers
 class QuestionIdentifier extends StatelessWidget {
   const QuestionIdentifier(
       {super.key, required this.isCorrectAnswer, required this.questionIndex});

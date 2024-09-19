@@ -3,6 +3,11 @@ import 'package:quiz_app/models/quiz_question.dart';
 
 import '../data/questions.dart' as questions_data;
 
+
+/// The state of the quiz
+/// Contains the questions, answers, and the current question index
+/// Provides methods to answer questions, reset the quiz, and navigate between questions
+/// Notifies listeners when the state changes to automatically update the UI
 class QuizState with ChangeNotifier {
   final Map<int, String> _answers = {};
   final List<QuizQuestion> _questions = questions_data.questions;
@@ -38,6 +43,7 @@ class QuizState with ChangeNotifier {
     _answers.clear();
     _currentQuestionIndex = 0;
     _isFinished = false;
+
     notifyListeners();
   }
 

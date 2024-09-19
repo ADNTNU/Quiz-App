@@ -3,7 +3,10 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:quiz_app/components/layout/page_wrapper.dart';
 import 'package:quiz_app/pages/pages.dart';
 
+/// A page that displays the home page
 class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return PageWrapper(title: "Home page", child:  Center(

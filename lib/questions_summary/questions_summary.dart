@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/questions_summary/summary_item.dart';
 
+/// A widget that displays a summary of the questions
+/// Contains a list of summary items
 class QuestionsSummary extends StatelessWidget {
   const QuestionsSummary({super.key, required this.summaryData});
 

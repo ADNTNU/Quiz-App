@@ -3,6 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'package:quiz_app/questions_summary/question_identifier.dart';
 
+
+/// A widget that displays a summary item
 class SummaryItem extends StatelessWidget {
   const SummaryItem(this.itemData, {super.key});
 
