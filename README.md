@@ -3,7 +3,7 @@
 
 # Quiz-App
 
-This project is a group assignment for NTNU course IDATA2503, where we are to build an Quiz App for mobile. We will heavly follow a [udemy](https://www.udemy.com/course/learn-flutter-dart-to-build-ios-android-apps/?couponCode=24T4MT90924A) course and add our own features on top of that.
+This project is a group assignment for NTNU course IDATA2503, where we are to build an Quiz App for mobile. We will heavily follow a [udemy](https://www.udemy.com/course/learn-flutter-dart-to-build-ios-android-apps/?couponCode=24T4MT90924A) course and add our own features on top of that.
 
 - [The app](#the-app)
 - [User stories](#user-stories)
@@ -15,9 +15,9 @@ This project is a group assignment for NTNU course IDATA2503, where we are to bu
 
 ## The app
 
-The app is built using flutter and dart and testet on emulated IOS and
-android phones. It is a simple Quiz app where we hard code in questions and the
-first answer in the list is the correct one. One first land on a start screen where one can choose to start the quiz. Then we display a text with posible answers and let the user select one before we change to new questions. After every question is answered the user get to see what they answerd and if it was correct.
+The app is built using flutter and dart and tested on emulated IOS and
+android phones. It is a simple Quiz app where we hard-code in questions and the
+first answer in the list is the correct one. The user lands on a start screen where they can choose to start the quiz. Then we display a text with posible answers and let the user select one before we change to new questions. After every question is answered a results page will be shown to the user so that they can see what they answerd and if it was correct.
 
 ## User stories
 
@@ -45,7 +45,7 @@ Acceptance Criteria:
 - The user can select one of several possible answers for each question.
 - The app should show a "Next" button to move to the next question after an answer is selected.
 
-### User story 3 (Maybe add this?)
+### User story 3
 
 As a user,
 I want to see how many questions I have answered and how many are left,
@@ -58,7 +58,23 @@ Acceptance Criteria:
 
 ## Files and Folder structure
 
-Comming soon when the project is done...
+### Components
+All the components for the app is stored in a components folder. With components we mean UI split up into smaller pieces that can be reused in the application.
+
+### Data
+The data folder contains all the data used in the app. In this project, the only data is the questions used in the app.
+
+### Models
+The models folder contains all the data models in the app. The only model we use in this app is for the questions.
+
+### Pages
+The pages folder contains all the pages of the application as well as a file 'pages' that contains an enum with all valid page routes.
+
+### States
+The states folder contains all the states used by the app. In this app we only use one state for the Quiz.
+
+### Main (file)
+The main file contains code to start the app and set up the different page routes.
 
 ## App architecture
 
@@ -72,7 +88,7 @@ To work on IOS and Android.
 
 ## Class Diagram
 
-We are using mermaid to display the Class Diagram in this Github repo, and dcdg to create the diagram. This will be updated in the feature when the extrea feature is added.
+We are using mermaid to display the Class Diagram in this Github repo, and dcdg to create the diagram. This will be updated in the future when the extra feature is added.
 
 ```mermaid
 classDiagram
@@ -179,3 +195,11 @@ flutter run
 
 And finally run the code in the [main.dart](lib/main.dart) file:
 ![vscode run main](doc/RunMain.png)
+
+
+## How we worked as a group
+Anders was quite busy when we first got the assignment so we agreed that Daniel should start coding from the course on Udemy. Daniel started coding most of the app and we kept contact on Discord on how it was progressing. Some of the communication happend by text and some by voice call. When Anders had time to work on the assignment, he started working on adding a single state for the entire quiz and better navigation.
+
+After that we both had a good understanding of how the app was structured and set up so then we started discussing what improvements we could add. We decided to add a simple display to show the current question and total number of questions. We also added buttons to navigate back through already answered questions and a button to go back to the home screen.
+
+When we were both happy with the app we discussed what to write in our documentation and then wrote it together while talking on Discord.
