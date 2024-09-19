@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'package:quiz_app/questions_summary/question_identifier.dart';
+import 'package:quiz_app/components/questions_summary/question_identifier.dart';
 
 
 /// A widget that displays a summary item

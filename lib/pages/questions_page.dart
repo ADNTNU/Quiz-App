@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:quiz_app/answer_button.dart';
+import 'package:quiz_app/components/answer_button.dart';
 import 'package:quiz_app/components/layout/page_wrapper.dart';
 import 'package:quiz_app/pages/pages.dart';
 import 'package:quiz_app/states/quiz_state.dart';
