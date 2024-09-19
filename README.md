@@ -92,56 +92,28 @@ We are using mermaid to display the Class Diagram in this Github repo, and dcdg 
 
 ```mermaid
 classDiagram
+class QuizQuestion
+QuizQuestion : +text String
+QuizQuestion : +answers List~String~
+QuizQuestion : +getShuffledAnswers() List<String>
+
+class MyApp
+MyApp : +build() Widget
+StatelessWidget <|-- MyApp
+
+class PageWrapper
+PageWrapper : +child Widget
+PageWrapper o-- Widget
+PageWrapper : +title String
+PageWrapper : +build() Widget
+StatelessWidget <|-- PageWrapper
+
 class AnswerButton
 AnswerButton : +answerText String
 AnswerButton : +onTap void Function
 AnswerButton o-- void Function
 AnswerButton : +build() Widget
 StatelessWidget <|-- AnswerButton
-
-class QuizQuestion
-QuizQuestion : +text String
-QuizQuestion : +answers List~String~
-QuizQuestion : +getShuffledAnswers() List<String>
-
-class QuestionsScreen
-QuestionsScreen : +onSelectAnswer void FunctionString
-QuestionsScreen o-- void FunctionString
-QuestionsScreen : +createState() State<QuestionsScreen>
-StatefulWidget <|-- QuestionsScreen
-
-class _QuestionsScreenState
-_QuestionsScreenState : +currentQuestionIndex int
-_QuestionsScreenState : +answerQuestion() void
-_QuestionsScreenState : +build() Widget
-State <|-- _QuestionsScreenState
-
-class Quiz
-Quiz : +createState() State<Quiz>
-StatefulWidget <|-- Quiz
-
-class _QuizState
-_QuizState : +selectedAnswers List~String~
-_QuizState : +activeScreen String
-_QuizState : +switchScreen() void
-_QuizState : +chooseAnswer() void
-_QuizState : +restartQuiz() void
-_QuizState : +build() Widget
-State <|-- _QuizState
-
-class StartScreen
-StartScreen : +startQuiz void Function
-StartScreen o-- void Function
-StartScreen : +build() Widget
-StatelessWidget <|-- StartScreen
-
-class ResultsScreen
-ResultsScreen : +chosenAnswers List~String~
-ResultsScreen : +onRestart void Function
-ResultsScreen o-- void Function
-ResultsScreen : +getSummaryData() List<Map<String, Object>>
-ResultsScreen : +build() Widget
-StatelessWidget <|-- ResultsScreen
 
 class QuestionIdentifier
 QuestionIdentifier : +isCorrectAnswer bool
@@ -150,14 +122,55 @@ QuestionIdentifier : +build() Widget
 StatelessWidget <|-- QuestionIdentifier
 
 class QuestionsSummary
-QuestionsSummary : +summaryData List~Map~String, Object~~
+QuestionsSummary : +summaryData List~Map~String, dynamic~~
 QuestionsSummary : +build() Widget
 StatelessWidget <|-- QuestionsSummary
 
 class SummaryItem
-SummaryItem : +itemData Map~String, Object~
+SummaryItem : +itemData Map~String, dynamic~
 SummaryItem : +build() Widget
 StatelessWidget <|-- SummaryItem
+
+class QuizState
+QuizState : -_answers Map~int, String~
+QuizState : -_questions List~QuizQuestion~
+QuizState : -_currentQuestionIndex int
+QuizState : -_isFinished bool
+QuizState : +answers Map~int, String~
+QuizState : +questions List~QuizQuestion~
+QuizState : +currentQuestion QuizQuestion
+QuizState o-- QuizQuestion
+QuizState : +currentQuestionIndex int
+QuizState : +isFinished bool
+QuizState : +answerQuestion() void
+QuizState : +reset() void
+QuizState : +nextQuestion() void
+QuizState : +previousQuestion() void
+ChangeNotifier <|-- QuizState
+
+class QuestionsPage
+QuestionsPage : +build() Widget
+StatelessWidget <|-- QuestionsPage
+
+class PageRoutes
+<<enumeration>> PageRoutes
+PageRoutes : +index int
+PageRoutes : +values$ List~PageRoutes~
+PageRoutes : +home$ PageRoutes
+PageRoutes o-- PageRoutes
+PageRoutes : +questions$ PageRoutes
+PageRoutes o-- PageRoutes
+PageRoutes : +results$ PageRoutes
+PageRoutes o-- PageRoutes
+Enum <|.. PageRoutes
+
+class HomePage
+HomePage : +build() Widget
+StatelessWidget <|-- HomePage
+
+class ResultsPage
+ResultsPage : +build() Widget
+StatelessWidget <|-- ResultsPage
 ```
 
 ## How to run this project
