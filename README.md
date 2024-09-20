@@ -12,6 +12,7 @@ This project is a group assignment for NTNU course IDATA2503, where we are to bu
 - [Specifications](#specifications)
 - [Class Diagram](#class-diagram)
 - [How to run this project](#how-to-run-this-project)
+- [How we worked as a group](#how-we-worked-as-a-group)
 
 ## The app
 
@@ -59,32 +60,38 @@ Acceptance Criteria:
 ## Files and Folder structure
 
 ### Components
+
 All the components for the app is stored in a components folder. With components we mean UI split up into smaller pieces that can be reused in the application.
 
 ### Data
+
 The data folder contains all the data used in the app. In this project, the only data is the questions used in the app.
 
 ### Models
+
 The models folder contains all the data models in the app. The only model we use in this app is for the questions.
 
 ### Pages
+
 The pages folder contains all the pages of the application as well as a file 'pages' that contains an enum with all valid page routes.
 
 ### States
+
 The states folder contains all the states used by the app. In this app we only use one state for the Quiz.
 
 ### Main (file)
+
 The main file contains code to start the app and set up the different page routes.
 
 ## App architecture
 
-The architecture of this project. Since we are new to this we dont know how to make test, error handling,
-
-Our architecture consist of Stateful and less classes that display widgets to the UI and fetch questions from a data.dart file.
+Our architecture consist of State full and less classes that display widgets to the UI and fetch questions from a data.dart file. In the UI-layer we use Widgets to display the start, questions and end screen for the user. The state managment hold infromation about the users answers, witch screen you on and etc. The data layer hold information about the questions and answers.
 
 ## Specifications
 
-To work on IOS and Android.
+Specifications of this app is that i works on both IOS and Androind.
+
+The user should be able to start the quiz, answer the questions and get the result at the end.
 
 ## Class Diagram
 
@@ -209,8 +216,8 @@ flutter run
 And finally run the code in the [main.dart](lib/main.dart) file:
 ![vscode run main](doc/RunMain.png)
 
-
 ## How we worked as a group
+
 Anders was quite busy when we first got the assignment so we agreed that Daniel should start coding from the course on Udemy. Daniel started coding most of the app and we kept contact on Discord on how it was progressing. Some of the communication happend by text and some by voice call. When Anders had time to work on the assignment, he started working on adding a single state for the entire quiz and better navigation.
 
 After that we both had a good understanding of how the app was structured and set up so then we started discussing what improvements we could add. We decided to add a simple display to show the current question and total number of questions. We also added buttons to navigate back through already answered questions and a button to go back to the home screen.
