@@ -85,7 +85,7 @@ The main file contains code to start the app and set up the different page route
 
 ## App architecture
 
-Our architecture consist of State full and less classes that display widgets to the UI and fetch questions from a data.dart file. In the UI-layer we use Widgets to display the start, questions and end screen for the user. The state managment hold infromation about the users answers, witch screen you on and etc. The data layer hold information about the questions and answers.
+Our architecture consist of stateful and stateless classes that display widgets to the UI and fetch questions from a data.dart file. In the UI-layer we use Widgets to display the start, questions and end screen for the user. The state managment hold infromation about the users answers, witch screen you on and etc. The data layer hold information about the questions and answers.
 
 ## Specifications
 
@@ -188,7 +188,7 @@ First off all you need to have flutter setup on you computer, if you dont follow
 
 ### Clone the project
 
-You first need to clone the project, or donwload it:
+You first need to clone the project, or download it:
 ![Clone github repo](doc/Clone.png)
 
 ### Open the project
@@ -203,7 +203,7 @@ Then you need to select an emulator for you project, we assume that you already 
 
 ### Refresh flutter
 
-After selecting an simulator you need might need to clean and run flutter in the root folder to get all the nesesery packages:
+After selecting an simulator you need might need to clean and run flutter in the root folder to get all the necessary packages:
 
 ```sh
 # Root folder in this example is the one you cloned called quiz_app.
