@@ -85,11 +85,11 @@ The main file contains code to start the app and set up the different page route
 
 ## App architecture
 
-Our architecture consist of stateful and stateless classes that display widgets to the UI and fetch questions from a data.dart file. In the UI-layer we use Widgets to display the start, questions and end screen for the user. The state managment hold infromation about the users answers, witch screen you on and etc. The data layer hold information about the questions and answers.
+Our architecture consist of stateful and stateless classes that display widgets to the UI and fetch questions from a data.dart file. In the UI-layer we use Widgets to display the start, questions and end screen for the user. The state managment holds infromation about the users answers, which screen they are on etc. The data layer holds information about the questions and correct answers.
 
 ## Specifications
 
-Specifications of this app is that i works on both IOS and Androind.
+Specifications of this app is that is works on both IOS and Androind.
 
 The user should be able to start the quiz, answer the questions and get the result at the end.
 
